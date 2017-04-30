@@ -1243,8 +1243,8 @@ i.e. {get: get } can be {get} (I think..)
 		function check(){
 			let deferred = $q.defer();
 			//Checking localStorage to see if user has an id with saved API keys
-			if(localStorage['uyts-log-info']){
-				let obj = JSON.parse(localStorage['uyts-log-info']);
+			if(localStorage['uyt-log-info']){
+				let obj = JSON.parse(localStorage['uyt-log-info']);
 				this.apisObj = obj;
 				//Updating the DOM (for the Google Maps API)
 				updateDOM(this.apisObj.mapsKey);
@@ -1255,8 +1255,8 @@ i.e. {get: get } can be {get} (I think..)
 					if(result === 'cancel'){
 						//Do nothing
 					} else {
-						localStorage.setItem('uyts-log-info', JSON.stringify(result));
-						this.apisObj = localStorage['uyts-log-info'];
+						localStorage.setItem('uyt-log-info', JSON.stringify(result));
+						this.apisObj = localStorage['uyt-log-info'];
 						updateDOM(this.apisObj.mapsKey);
 
 						//Refresh page to enable g maps to work
@@ -1274,8 +1274,8 @@ i.e. {get: get } can be {get} (I think..)
 				if(result === 'cancel'){
 					//Do nothing
 				} else {
-					localStorage.setItem('uyts-log-info', JSON.stringify(result));
-					this.apisObj = localStorage['uyts-log-info'];
+					localStorage.setItem('uyt-log-info', JSON.stringify(result));
+					this.apisObj = localStorage['uyt-log-info'];
 					updateDOM(this.apisObj.mapsKey);
 
 					//Refresh page to enable g maps to work
@@ -1330,15 +1330,15 @@ i.e. {get: get } can be {get} (I think..)
 		this.setWarn = setWarn;
 
 		function getWarn(){
-			if(localStorage['uyts-warn']){
-				return JSON.parse(localStorage['uyts-warn']);
+			if(localStorage['uyt-warn']){
+				return JSON.parse(localStorage['uyt-warn']);
 			} else {
 				return true;
 			}
 		}
 
 		function setWarn(val){
-			localStorage.setItem('uyts-warn', JSON.stringify(val));
+			localStorage.setItem('uyt-warn', JSON.stringify(val));
 		}
 	}
 
