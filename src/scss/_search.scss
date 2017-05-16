@@ -1,6 +1,6 @@
 //Search
 
-#bar, .greeting-container {
+#bar {
 	text-align: center;
 }
 
@@ -10,7 +10,6 @@
 	h3 {
 		display: inline-block;
 		margin: 0 0.5em;
-		margin-left: 2.5em;
 	}
 }
 
@@ -281,6 +280,12 @@
 } 
 
 @media screen and ($tabletfix){
+	.greeting-container {
+		text-align: center;
+		h3 {
+			margin-left: 2.5em;
+		}
+	}
 	#advanced-search {
 		#form-advanced-video-search{
 			#translate-wrapper {

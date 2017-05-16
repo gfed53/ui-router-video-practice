@@ -240,7 +240,7 @@ body #page-header #header-wrapper #credit {
   #playlist .toggle-all-container {
     text-align: left; } }
 
-#bar, .greeting-container {
+#bar {
   text-align: center; }
 
 .greeting-container {
@@ -248,8 +248,7 @@ body #page-header #header-wrapper #credit {
   border-bottom: 1px solid #E7E7E7; }
   .greeting-container h3 {
     display: inline-block;
-    margin: 0 0.5em;
-    margin-left: 2.5em; }
+    margin: 0 0.5em; }
 
 #bar {
   margin: 3em 0; }
@@ -439,6 +438,10 @@ body #page-header #header-wrapper #credit {
       text-align: center; } }
 
 @media screen and (min-width: 525px) {
+  .greeting-container {
+    text-align: center; }
+    .greeting-container h3 {
+      margin-left: 2.5em; }
   #advanced-search #form-advanced-video-search #translate-wrapper #translate-select {
     max-width: 100%; } }
 
