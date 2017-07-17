@@ -1,9 +1,5 @@
 /*jshint esversion: 6 */
 
-/* TODO for all factories: adjust objects returned that have reptition.
-i.e. {get: get } can be {get} (I think..) 
-*/
-
 (function(){
 	angular
 	.module('myApp')
@@ -910,7 +906,6 @@ i.e. {get: get } can be {get} (I think..)
 			let url = 'https://translate.yandex.net/api/v1.5/tr.json/translate',
 			request = {
 				key: apisObj.translateKey,
-				// key: 'trnsl.1.1.20160728T161850Z.60e012cb689f9dfd.6f8cd99e32d858950d047eaffecf930701d73a38',
 				text: text,
 				lang: 'en-'+lang
 			};
