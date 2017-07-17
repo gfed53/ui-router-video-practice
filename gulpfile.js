@@ -1,10 +1,12 @@
 var gulp = require('gulp');
 
 var jshint = require('gulp-jshint');
+var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var uglify = require('gulp-uglify');
 var ngmin = require('gulp-ngmin');
+var strip = require('gulp-strip-comments');
 var minifyHtml = require('gulp-minify-html');
 var htmlmin = require('gulp-htmlmin');
 var minifyCss = require('gulp-minify-css');
@@ -12,6 +14,7 @@ var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var clean = require('gulp-clean');
 var del = require('del');
+var gulpUtil = require('gulp-util');
 
 var paths = {
 	scripts: 'src/**/*.js',
@@ -51,7 +54,6 @@ gulp.task('clean', function(){
 });
 
 gulp.task('htmlmin', [ 'clean' ], function(){
-	var allHtml = paths.index.concat(paths.html);
 	return gulp.src( './src/**/*.html' )
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest( paths.build ));
@@ -61,7 +63,7 @@ gulp.task('usemin', [ 'htmlmin' ], function(){
 	return gulp.src( paths.index )
 		.pipe(usemin({
 			css: [ minifyCss(), 'concat' ],
-			js: [ ngmin(), uglify() ]
+			js: [ strip(), babel({presets: ['es2015']}), ngmin(), uglify().on('error', gulpUtil.log) ]
 		}))
 		.pipe(gulp.dest( paths.build ));
 });
